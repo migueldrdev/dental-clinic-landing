@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="tooth-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0284c7" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  <rect width="128" height="128" rx="32" fill="#0f172a"/>
+  <path d="M45.5 24C30.5 24 18 36.5 18 51.5C18 69 28 84 38 101.5C42 109 45.5 121.5 50.5 124C55.5 126.5 58 116.5 60.5 106.5C62 99 64 99 65.5 106.5C68 116.5 70.5 126.5 75.5 124C80.5 121.5 84 109 88 101.5C98 84 108 69 108 51.5C108 36.5 95.5 24 80.5 24C72 24 66 29 63 33C60 29 54 24 45.5 24Z" 
+        fill="url(#tooth-grad)" 
+        transform="matrix(0.72 0 0 0.72 17.5 17.5)" 
+        filter="url(#shadow)"/>
+  <circle cx="84" cy="38" r="4" fill="#38bdf8" opacity="0.8"/>
+  <circle cx="94" cy="46" r="2.5" fill="#bae6fd" opacity="0.9"/>
+</svg>

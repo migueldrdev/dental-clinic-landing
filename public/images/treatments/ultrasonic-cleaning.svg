@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#grad)"/>
+  <circle cx="480" cy="80" r="120" fill="#ffffff" opacity="0.05"/>
+  <circle cx="120" cy="320" r="100" fill="#ffffff" opacity="0.05"/>
+  
+  <g transform="translate(265, 155)">
+    <rect width="70" height="70" rx="20" fill="#ffffff" opacity="0.15"/>
+    <path d="M26 15C17.5 15 10.5 22 10.5 30.5C10.5 40.5 16 49 22 59C24 63 26 70 29 71.5C32 73 33.5 67 35 61.5C36 57 37 57 38 61.5C39.5 67 41 73 44 71.5C47 70 49 63 51 59C57 49 62.5 40.5 62.5 30.5C62.5 22 55.5 15 47 15C42 15 38.5 18 36.5 20.5C34.5 18 31 15 26 15Z" fill="#ffffff" transform="scale(0.7) translate(14, 14)"/>
+  </g>
+
+  <text x="50%" y="250" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="20" fill="#ffffff" text-anchor="middle">Profilaxis Ultrasónica</text>
+  <text x="50%" y="275" font-family="'Plus Jakarta Sans', sans-serif" font-weight="500" font-size="13" fill="#e0f2fe" text-anchor="middle">Limpieza y Pulido Dental 360°</text>
+</svg>

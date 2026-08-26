@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16"/>
+      <stop offset="50%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#082f49"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#2dd4bf"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1000" cy="150" r="300" fill="#0284c7" opacity="0.15" filter="blur(80px)"/>
+  <circle cx="200" cy="500" r="250" fill="#0d9488" opacity="0.1" filter="blur(80px)"/>
+
+  <!-- Logo -->
+  <g transform="translate(100, 100)">
+    <rect width="70" height="70" rx="20" fill="url(#accent)"/>
+    <path d="M26 15C17.5 15 10.5 22 10.5 30.5C10.5 40.5 16 49 22 59C24 63 26 70 29 71.5C32 73 33.5 67 35 61.5C36 57 37 57 38 61.5C39.5 67 41 73 44 71.5C47 70 49 63 51 59C57 49 62.5 40.5 62.5 30.5C62.5 22 55.5 15 47 15C42 15 38.5 18 36.5 20.5C34.5 18 31 15 26 15Z" fill="#ffffff" transform="scale(0.7) translate(14, 14)"/>
+    <text x="90" y="48" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="42" fill="#ffffff">Clínica<tspan fill="#38bdf8">Dental</tspan></text>
+  </g>
+
+  <!-- Headline -->
+  <text x="100" y="270" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="54" fill="#ffffff">Tu Sonrisa Ideal con</text>
+  <text x="100" y="340" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="54" fill="url(#accent)">Tecnología Digital 3D</text>
+
+  <!-- Subtitle -->
+  <text x="100" y="420" font-family="'Plus Jakarta Sans', sans-serif" font-weight="500" font-size="24" fill="#94a3b8">Ortodoncia Invisible • Implantes Guiados • Diseño de Sonrisa • Atención Sin Dolor</text>
+
+  <!-- Badge footer -->
+  <rect x="100" y="480" width="380" height="56" rx="16" fill="#0284c7" opacity="0.2"/>
+  <rect x="100" y="480" width="380" height="56" rx="16" stroke="#38bdf8" stroke-width="2" fill="none" opacity="0.4"/>
+  <text x="130" y="516" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="20" fill="#38bdf8">✨ Reserva tu Cita Online</text>
+</svg>
