@@ -136,7 +136,7 @@ const { scrollToSection } = useSmoothScroll();
                             class="h-64 sm:h-80 rounded-2xl overflow-hidden relative"
                         >
                             <ImageSkeleton
-                                src="/images/hero/clinic-3d-office.jpg"
+                                src="/images/hero/clinic-3d-office.webp"
                                 alt="Consultorio odontológico moderno con equipamiento 3D"
                                 skeleton-description="Consultorio digital con sillón ergonómico y escáner intraoral 3D (800x600 px)"
                                 class-name="w-full h-full object-cover"

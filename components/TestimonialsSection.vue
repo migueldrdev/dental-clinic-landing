@@ -12,13 +12,13 @@ const cases = [
         treatment: "Diseño de Sonrisa & Carillas",
         rating: 5,
         quote: "El cambio ha sido increíble. Tenía miedo al dolor y fue una experiencia 100% tranquila. Las carillas quedaron súper naturales y mi confianza al hablar mejoró muchísimo.",
-        beforeImage: "/images/testimonials/before-veneers.jpg",
+        beforeImage: "/images/testimonials/before-veneers.webp",
         beforeSkeleton:
             "Dientes anteriores con desgaste y manchas previas al tratamiento (400x300 px)",
-        afterImage: "/images/testimonials/after-veneers.jpg",
+        afterImage: "/images/testimonials/after-veneers.webp",
         afterSkeleton:
             "Sonrisa final alineada con carillas de porcelana de alta estética (400x300 px)",
-        avatar: "/images/testimonials/avatar-maria.jpg",
+        avatar: "/images/testimonials/avatar-maria.webp",
     },
     {
         id: 2,
@@ -26,13 +26,13 @@ const cases = [
         treatment: "Ortodoncia Invisible 3D",
         rating: 5,
         quote: "Los alineadores invisibles fueron la mejor decisión. Nadie notaba que los llevaba puestos en el trabajo y en solo 8 meses logré la mordida y alineación perfecta.",
-        beforeImage: "/images/testimonials/before-ortho.jpg",
+        beforeImage: "/images/testimonials/before-ortho.webp",
         beforeSkeleton:
             "Apiñamiento moderado en arcada superior e inferior (400x300 px)",
-        afterImage: "/images/testimonials/after-ortho.jpg",
+        afterImage: "/images/testimonials/after-ortho.webp",
         afterSkeleton:
             "Arco dental perfectamente nivelado con férulas 3D (400x300 px)",
-        avatar: "/images/testimonials/avatar-carlos.png",
+        avatar: "/images/testimonials/avatar-carlos.webp",
     },
     {
         id: 3,
@@ -40,13 +40,13 @@ const cases = [
         treatment: "Implante Dental Guiado",
         rating: 5,
         quote: "Perder una pieza molar me causaba mucha inseguridad al comer. El implante guiado quedó idéntico a mis otros dientes naturales y la recuperación fue rapidísima.",
-        beforeImage: "/images/testimonials/before-implants.jpg",
+        beforeImage: "/images/testimonials/before-implants.webp",
         beforeSkeleton:
             "Espacio edéntulo posterior antes de la colocación del implante (400x300 px)",
-        afterImage: "/images/testimonials/after-implants.jpg",
+        afterImage: "/images/testimonials/after-implants.webp",
         afterSkeleton:
             "Corona de circonio sobre implante integrada armónicamente (400x300 px)",
-        avatar: "/images/testimonials/avatar-andrea.jpg",
+        avatar: "/images/testimonials/avatar-andrea.webp",
     },
 ];
 

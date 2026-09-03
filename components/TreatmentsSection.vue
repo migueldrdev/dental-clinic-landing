@@ -35,7 +35,7 @@ const treatments = [
         specialtyName: "Ortodoncia Invisible",
         description:
             "Alineación dental discreta con férulas transparentes personalizadas mediante escaneo 3D. Cómodas, estéticas y removibles.",
-        image: "/images/treatments/invisible-orthodontics.jpg",
+        image: "/images/treatments/invisible-orthodontics.webp",
         skeletonDescription:
             "Alineador dental transparente termoformado en modelo anatómico 3D (600x400 px)",
         duration: "6 a 14 meses",
@@ -49,7 +49,7 @@ const treatments = [
         specialtyName: "Diseño de Sonrisa",
         description:
             "Carillas de porcelana ultra finas y resistentes que corrigen color, tamaño y forma dental con simulación digital previa.",
-        image: "/images/treatments/smile-design-veneers.jpg",
+        image: "/images/treatments/smile-design-veneers.webp",
         skeletonDescription:
             "Paciente sonriendo mostrando carillas estéticas de porcelana de alta luminosidad (600x400 px)",
         duration: "2 a 3 sesiones",
@@ -63,7 +63,7 @@ const treatments = [
         specialtyName: "Implantes Dentales",
         description:
             "Recupera piezas perdidas con fijaciones de titanio biocompatible grado médico y coronas de circonio de aspecto 100% natural.",
-        image: "/images/treatments/dental-implants.jpg",
+        image: "/images/treatments/dental-implants.webp",
         skeletonDescription:
             "Implante dental de titanio con corona estética en modelo didáctico (600x400 px)",
         duration: "Cirugía guiada en 1 cita",
@@ -77,7 +77,7 @@ const treatments = [
         specialtyName: "Endodoncia",
         description:
             "Salva tu diente natural con tecnología rotatoria de máxima precisión. Tratamiento de conducto en una sola sesión indolora.",
-        image: "/images/treatments/endodontics.jpg",
+        image: "/images/treatments/endodontics.webp",
         skeletonDescription:
             "Microscopio operatorio odontológico y pieza rotatoria de endodoncia (600x400 px)",
         duration: "1 sesión (60 min)",
@@ -91,7 +91,7 @@ const treatments = [
         specialtyName: "Limpieza y Profilaxis",
         description:
             "Eliminación completa de sarro, placa bacteriana y manchas con tecnología de ultrasonido y pulido con aeropulidor de bicarbonato.",
-        image: "/images/treatments/ultrasonic-cleaning.jpg",
+        image: "/images/treatments/ultrasonic-cleaning.webp",
         skeletonDescription:
             "Procedimiento de profilaxis dental ultrasónica con barrera de aislamiento (600x400 px)",
         duration: "45 minutos",
@@ -105,7 +105,7 @@ const treatments = [
         specialtyName: "Diseño de Sonrisa",
         description:
             "Aclara hasta 4 tonos en una sola sesión en clínica sin dañar el esmalte ni provocar sensibilidad dental prolongada.",
-        image: "/images/treatments/laser-whitening.jpg",
+        image: "/images/treatments/laser-whitening.webp",
         skeletonDescription:
             "Lámpara de fotopolimerización LED azul para blanqueamiento dental en clínica (600x400 px)",
         duration: "1 sesión (50 min)",
