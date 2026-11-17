@@ -672,7 +672,7 @@ function closeSuccessModal() {
             <div
                 class="bg-white dark:bg-slate-900 rounded-3xl max-w-sm w-full p-8 text-center shadow-2xl border border-slate-100 dark:border-slate-800 animate-in zoom-in-95 duration-200"
             >
-                <!-- Animated Tooth Icon -->
+                <!-- Animated Brand Icon -->
                 <div
                     class="relative w-20 h-20 mx-auto mb-5 flex items-center justify-center"
                 >
@@ -680,17 +680,13 @@ function closeSuccessModal() {
                         class="absolute inset-0 bg-sky-400/20 rounded-full animate-ping"
                     />
                     <div
-                        class="relative w-16 h-16 bg-gradient-to-tr from-sky-500 to-sky-400 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-sky-500/40"
+                        class="relative w-16 h-16 bg-gradient-to-tr from-sky-500 to-sky-400 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-sky-500/40 p-3"
                     >
-                        <svg
-                            class="w-9 h-9"
-                            viewBox="0 0 24 24"
-                            fill="currentColor"
-                        >
-                            <path
-                                d="M8.5 2C5.5 2 3 4.5 3 7.5C3 11 5 14 7 17.5C7.8 19 8.5 21.5 9.5 22C10.5 22.5 11 20.5 11.5 18.5C11.8 17 12.2 17 12.5 18.5C13 20.5 13.5 22.5 14.5 22C15.5 21.5 16.2 19 17 17.5C19 14 21 11 21 7.5C21 4.5 18.5 2 15.5 2C13.8 2 12.6 3 12 3.8C11.4 3 10.2 2 8.5 2Z"
-                            />
-                        </svg>
+                        <img
+                            src="/images/brand/icon-odontec-white.png"
+                            class="w-10 h-10 object-contain"
+                            alt="ODONTEC"
+                        />
                     </div>
                 </div>
 
@@ -702,7 +698,7 @@ function closeSuccessModal() {
                 <p
                     class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed mb-6"
                 >
-                    Hemos registrado tus datos exitosamente. Un asesor clínico de la <strong>Clínica Dental</strong> te contactará en breve vía WhatsApp al número registrado para confirmar tu turno.
+                    Hemos registrado tus datos exitosamente. Un asesor clínico de <strong>ODONTEC</strong> te contactará en breve vía WhatsApp al número registrado para confirmar tu turno.
                 </p>
 
                 <button

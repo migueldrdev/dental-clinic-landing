@@ -68,16 +68,20 @@ onUnmounted(() => {
       <a
         href="#inicio"
         @click.prevent="handleNavClick('inicio')"
-        class="flex items-center gap-3 group"
+        class="flex items-center gap-3 group transition-transform duration-200 hover:opacity-95"
       >
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-500 to-sky-400 flex items-center justify-center text-white shadow-md shadow-sky-500/20 group-hover:scale-105 transition-transform duration-200">
-          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M8.5 2C5.5 2 3 4.5 3 7.5C3 11 5 14 7 17.5C7.8 19 8.5 21.5 9.5 22C10.5 22.5 11 20.5 11.5 18.5C11.8 17 12.2 17 12.5 18.5C13 20.5 13.5 22.5 14.5 22C15.5 21.5 16.2 19 17 17.5C19 14 21 11 21 7.5C21 4.5 18.5 2 15.5 2C13.8 2 12.6 3 12 3.8C11.4 3 10.2 2 8.5 2Z" />
-          </svg>
-        </div>
-        <div class="text-xl sm:text-2xl font-black tracking-tight text-slate-900 dark:text-white">
-          Clínica<span class="text-sky-500">Dental</span>
-        </div>
+        <!-- Light Mode Logo -->
+        <img
+          src="/images/brand/logo-odontec-blue.png"
+          alt="ODONTEC - Sistema Odontológico"
+          class="h-9 sm:h-10 w-auto object-contain dark:hidden"
+        />
+        <!-- Dark Mode Logo -->
+        <img
+          src="/images/brand/logo-odontec-white.png"
+          alt="ODONTEC - Sistema Odontológico"
+          class="h-9 sm:h-10 w-auto object-contain hidden dark:block"
+        />
       </a>
 
       <!-- Desktop Navigation Menu -->

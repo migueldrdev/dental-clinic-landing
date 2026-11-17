@@ -19,8 +19,8 @@
   <!-- Logo -->
   <g transform="translate(100, 100)">
     <rect width="70" height="70" rx="20" fill="url(#accent)"/>
-    <path d="M26 15C17.5 15 10.5 22 10.5 30.5C10.5 40.5 16 49 22 59C24 63 26 70 29 71.5C32 73 33.5 67 35 61.5C36 57 37 57 38 61.5C39.5 67 41 73 44 71.5C47 70 49 63 51 59C57 49 62.5 40.5 62.5 30.5C62.5 22 55.5 15 47 15C42 15 38.5 18 36.5 20.5C34.5 18 31 15 26 15Z" fill="#ffffff" transform="scale(0.7) translate(14, 14)"/>
-    <text x="90" y="48" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="42" fill="#ffffff">Clínica<tspan fill="#38bdf8">Dental</tspan></text>
+    <image href="/images/brand/icon-odontec-white.png" x="12" y="12" width="46" height="46"/>
+    <text x="90" y="48" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="42" fill="#ffffff">ODON<tspan fill="#38bdf8">TEC</tspan></text>
   </g>
 
   <!-- Headline -->

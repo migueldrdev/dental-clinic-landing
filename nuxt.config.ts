@@ -2,20 +2,23 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: false },
+  experimental: {
+    appManifest: false,
+  },
   modules: [
     '@nuxtjs/tailwindcss',
   ],
   app: {
     head: {
-      title: 'Clínica Dental | Especialistas en Odontología Digital 3D',
+      title: 'ODONTEC | Sistema Odontológico',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'description', content: 'Atención odontológica integral, ortodoncia invisible 3D, implantes dentales guiados y diseño de sonrisa sin dolor. Reserva tu cita online.' },
-        { name: 'theme-color', content: '#0f172a' },
-        { property: 'og:site_name', content: 'Clínica Dental' },
-        { property: 'og:title', content: 'Clínica Dental | Especialistas en Odontología Digital 3D' },
-        { property: 'og:description', content: 'Diagnósticos computarizados en alta definición, especialistas colegiados COP y tratamientos garantizados.' },
+        { name: 'description', content: 'ODONTEC - Sistema Integral de Gestión Odontológica y Atención Clínica de Alta Precisión. Reserva tu cita online.' },
+        { name: 'theme-color', content: '#024b7b' },
+        { property: 'og:site_name', content: 'ODONTEC' },
+        { property: 'og:title', content: 'ODONTEC | Sistema Odontológico' },
+        { property: 'og:description', content: 'Atención odontológica integral, tecnología 3D y gestión clínica especializada.' },
         { property: 'og:image', content: '/og-image.svg' },
         { property: 'og:type', content: 'website' },
         { name: 'twitter:card', content: 'summary_large_image' },

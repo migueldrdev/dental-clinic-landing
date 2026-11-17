@@ -13,10 +13,8 @@ const { scrollToSection } = useSmoothScroll()
       class="bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 text-white font-extrabold px-4 sm:px-5 py-3 rounded-full shadow-2xl shadow-sky-500/40 flex items-center gap-2.5 text-xs sm:text-sm border-2 border-white/20 backdrop-blur-md transition-transform hover:scale-105 animate-float-slow"
       title="Agendar Cita Médica"
     >
-      <div class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center text-white shrink-0">
-        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M8.5 2C5.5 2 3 4.5 3 7.5C3 11 5 14 7 17.5C7.8 19 8.5 21.5 9.5 22C10.5 22.5 11 20.5 11.5 18.5C11.8 17 12.2 17 12.5 18.5C13 20.5 13.5 22.5 14.5 22C15.5 21.5 16.2 19 17 17.5C19 14 21 11 21 7.5C21 4.5 18.5 2 15.5 2C13.8 2 12.6 3 12 3.8C11.4 3 10.2 2 8.5 2Z" />
-        </svg>
+      <div class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center text-white shrink-0 p-1">
+        <img src="/images/brand/icon-odontec-white.png" class="w-3.5 h-3.5 object-contain" alt="ODONTEC" />
       </div>
       <span class="hidden sm:inline">¡Reserva tu Cita Online!</span>
       <span class="sm:hidden">Cita Online</span>

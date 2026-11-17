@@ -12,14 +12,11 @@ const currentYear = new Date().getFullYear()
         <!-- Col 1: Brand -->
         <div class="space-y-4">
           <div class="flex items-center gap-3">
-            <div class="w-9 h-9 rounded-xl bg-sky-500 flex items-center justify-center text-white shadow-md">
-              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M8.5 2C5.5 2 3 4.5 3 7.5C3 11 5 14 7 17.5C7.8 19 8.5 21.5 9.5 22C10.5 22.5 11 20.5 11.5 18.5C11.8 17 12.2 17 12.5 18.5C13 20.5 13.5 22.5 14.5 22C15.5 21.5 16.2 19 17 17.5C19 14 21 11 21 7.5C21 4.5 18.5 2 15.5 2C13.8 2 12.6 3 12 3.8C11.4 3 10.2 2 8.5 2Z" />
-              </svg>
-            </div>
-            <div class="text-xl font-extrabold text-white tracking-tight">
-              Clínica<span class="text-sky-400">Dental</span>
-            </div>
+            <img
+              src="/images/brand/logo-odontec-white.png"
+              alt="ODONTEC - Sistema Odontológico"
+              class="h-9 w-auto object-contain"
+            />
           </div>
           <p class="text-slate-400 leading-relaxed">
             Centro estomatológico de referencia nacional. Odontología digital 3D, calidez profesional y tratamientos certificados.
@@ -105,7 +102,7 @@ const currentYear = new Date().getFullYear()
           <div class="space-y-2 text-slate-400">
             <p><strong>Central:</strong> (01) 748-9100</p>
             <p><strong>WhatsApp 24/7:</strong> +51 987 654 321</p>
-            <p><strong>Correo:</strong> citas@clinicadental.com</p>
+            <p><strong>Correo:</strong> citas@odontec.com</p>
             <p class="text-[11px] text-emerald-400 font-semibold pt-1">
               • Urgencias Odontológicas atendidas de inmediato
             </p>
@@ -115,7 +112,7 @@ const currentYear = new Date().getFullYear()
 
       <!-- Bottom Bar -->
       <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left text-slate-500">
-        <p>© {{ currentYear }} Clínica Dental. Todos los derechos reservados.</p>
+        <p>© {{ currentYear }} ODONTEC - Sistema Odontológico. Todos los derechos reservados.</p>
         <p class="text-[11px]">
           Desarrollado bajo estándares médicos de seguridad de datos y privacidad HIPAA / MINSA.
         </p>

@@ -19,10 +19,10 @@ function handleSpecialtySelection(specialty: string) {
 
 // SEO & Schema.org Structured Data
 useHead({
-  title: 'Clínica Dental | Especialistas en Odontología Digital 3D',
+  title: 'ODONTEC | Sistema Odontológico',
   meta: [
-    { name: 'description', content: 'Centro odontológico de alta precisión. Ortodoncia invisible 3D, implantes dentales guiados, diseño de sonrisa y atención sin dolor. Reserva tu cita online.' },
-    { property: 'og:title', content: 'Clínica Dental | Especialistas en Odontología Digital 3D' },
+    { name: 'description', content: 'ODONTEC - Centro odontológico de alta precisión. Ortodoncia invisible 3D, implantes dentales guiados, diseño de sonrisa y atención sin dolor. Reserva tu cita online.' },
+    { property: 'og:title', content: 'ODONTEC | Sistema Odontológico' },
     { property: 'og:description', content: 'Diseño de sonrisa computarizado, implantes guiados y atención odontológica con especialistas certificados.' },
     { property: 'og:type', content: 'website' },
     { name: 'twitter:card', content: 'summary_large_image' },
@@ -33,7 +33,7 @@ useHead({
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'Dentist',
-        name: 'Clínica Dental Especializada',
+        name: 'ODONTEC - Sistema Odontológico',
         description: 'Centro odontológico con tecnología 3D, ortodoncia invisible e implantología oral.',
         telephone: '+51-987-654-321',
         address: {

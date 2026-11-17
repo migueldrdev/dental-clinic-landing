@@ -1,7 +1,7 @@
 {
-  "name": "Clínica Dental Especializada",
-  "short_name": "ClínicaDental",
-  "description": "Odontología digital 3D, ortodoncia invisible y diseño de sonrisa.",
+  "name": "ODONTEC | Sistema Odontológico",
+  "short_name": "ODONTEC",
+  "description": "Atención odontológica integral, tecnología 3D y gestión clínica especializada.",
   "icons": [
     {
       "src": "/icon-192.png",
@@ -14,8 +14,8 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#0ea5e9",
-  "background_color": "#0f172a",
+  "theme_color": "#024B7B",
+  "background_color": "#024B7B",
   "display": "standalone",
   "start_url": "/"
 }
