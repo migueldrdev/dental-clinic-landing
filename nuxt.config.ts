@@ -33,9 +33,10 @@ export default defineNuxtConfig({
     },
   },
   runtimeConfig: {
+    backendApiUrl: process.env.BACKEND_API_URL || 'http://20.171.52.21:8080/api',
     public: {
-      apiBaseUrl: process.env.NUXT_PUBLIC_API_BASE_URL || 'http://localhost:8080/api',
-      adminAppUrl: process.env.NUXT_PUBLIC_ADMIN_APP_URL || 'http://localhost:5173',
+      apiBaseUrl: process.env.NUXT_PUBLIC_API_BASE_URL || '/api',
+      adminAppUrl: process.env.NUXT_PUBLIC_ADMIN_APP_URL || 'http://20.171.52.21',
     },
   },
   nitro: {
