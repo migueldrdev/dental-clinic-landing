@@ -21,6 +21,8 @@ import {
     ChevronDown,
 } from "@lucide/vue";
 import ToothLoader from "./ToothLoader.vue";
+import CustomSelect from "./CustomSelect.vue";
+import CustomDatePicker from "./CustomDatePicker.vue";
 
 interface Props {
     preselectedSpecialty?: string;
@@ -29,6 +31,51 @@ interface Props {
 const props = defineProps<Props>();
 
 const config = useRuntimeConfig();
+
+const specialtyOptions = [
+    {
+        value: "Valoración Inicial Completa",
+        label: "Valoración Inicial Completa (Diagnóstico 3D)",
+        description: "Diagnóstico computarizado integral, fotos intraorales y plan de tratamiento.",
+        badge: "Recomendado",
+    },
+    {
+        value: "Ortodoncia Invisible",
+        label: "Ortodoncia Invisible (Alineadores 3D)",
+        description: "Alineamiento dental estético y transparente sin brackets metálicos.",
+        badge: "3D Tech",
+    },
+    {
+        value: "Diseño de Sonrisa",
+        label: "Diseño de Sonrisa & Carillas Estéticas",
+        description: "Carillas de resina estética de alta gama o porcelana ultrafina.",
+        badge: "Estética",
+    },
+    {
+        value: "Implantes Dentales",
+        label: "Implantes Dentales Guiados & Cirugía",
+        description: "Recuperación de piezas dentales fijas con tecnología guiada sin dolor.",
+        badge: "Titanio",
+    },
+    {
+        value: "Endodoncia",
+        label: "Endodoncia (Tratamiento de Conducto)",
+        description: "Alivio del dolor agudo y salvación de la pieza dental con tecnología rotatoria.",
+        badge: "Sin Dolor",
+    },
+    {
+        value: "Limpieza y Profilaxis",
+        label: "Limpieza y Profilaxis Ultrasónica",
+        description: "Remoción profunda de sarro y manchas con ultrasonido y pulido.",
+        badge: "Preventiva",
+    },
+    {
+        value: "Urgencia Dental",
+        label: "Urgencia Dental por Dolor / Infección",
+        description: "Atención prioritaria inmediata el mismo día.",
+        badge: "Urgente",
+    },
+];
 
 const formData = ref({
     nombre_completo: "",
@@ -502,94 +549,34 @@ function closeSuccessModal() {
                         </div>
                     </div>
 
-                    <!-- Row 3: Especialidad Requerida -->
+                    <!-- Row 3: Especialidad Requerida (Custom Modern Shadcn Select) -->
                     <div>
                         <label
                             class="block text-[11px] font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5"
                         >
                             Tratamiento o Especialidad Requerida *
                         </label>
-                        <div class="relative">
-                            <span
-                                class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-slate-400"
-                            >
-                                <Stethoscope class="w-4 h-4" />
-                            </span>
-                            <select
-                                v-model="formData.especialidad"
-                                required
-                                class="w-full pl-10 pr-10 py-3 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-xs text-slate-900 dark:text-white font-medium transition focus:bg-white dark:focus:bg-slate-900 focus:ring-2 focus:ring-sky-500 outline-none appearance-none cursor-pointer"
-                            >
-                                <option value="Valoración Inicial Completa">
-                                    Valoración Inicial Completa (Diagnóstico 3D)
-                                </option>
-                                <option value="Ortodoncia Invisible">
-                                    Ortodoncia Invisible (Alineadores 3D)
-                                </option>
-                                <option value="Diseño de Sonrisa">
-                                    Diseño de Sonrisa & Carillas Estéticas
-                                </option>
-                                <option value="Implantes Dentales">
-                                    Implantes Dentales Guiados & Cirugía
-                                </option>
-                                <option value="Endodoncia">
-                                    Endodoncia (Tratamiento de Conducto Mecanizado)
-                                </option>
-                                <option value="Limpieza y Profilaxis">
-                                    Limpieza y Profilaxis Ultrasónica sin Dolor
-                                </option>
-                                <option value="Urgencia Dental">
-                                    Urgencia Dental por Dolor / Infección
-                                </option>
-                            </select>
-                            <span
-                                class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-slate-400"
-                            >
-                                <ChevronDown class="w-4 h-4" />
-                            </span>
-                        </div>
+                        <CustomSelect
+                            v-model="formData.especialidad"
+                            :options="specialtyOptions"
+                            placeholder="Selecciona la especialidad o tratamiento..."
+                            :has-error="!!fieldErrors.especialidad"
+                        />
                     </div>
 
                     <!-- Row 4: Fecha Preferida & Selector Moderno de Turno -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
-                        <!-- Fecha Preferida con Accesos Rápidos -->
+                        <!-- Fecha Preferida con Custom DatePicker tipo Shadcn -->
                         <div>
-                            <div class="flex items-center justify-between mb-1.5">
-                                <label
-                                    class="block text-[11px] font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider"
-                                >
-                                    Fecha Estimada <span class="text-slate-400 font-normal">(Opcional)</span>
-                                </label>
-                                <div class="flex items-center gap-1.5">
-                                    <button
-                                        type="button"
-                                        @click="setQuickDate(0)"
-                                        class="px-2 py-0.5 text-[10px] font-semibold rounded-md bg-slate-100 hover:bg-sky-100 text-slate-600 hover:text-sky-700 dark:bg-slate-800 dark:text-slate-300 transition"
-                                    >
-                                        Hoy
-                                    </button>
-                                    <button
-                                        type="button"
-                                        @click="setQuickDate(1)"
-                                        class="px-2 py-0.5 text-[10px] font-semibold rounded-md bg-slate-100 hover:bg-sky-100 text-slate-600 hover:text-sky-700 dark:bg-slate-800 dark:text-slate-300 transition"
-                                    >
-                                        Mañana
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="relative">
-                                <span
-                                    class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-slate-400"
-                                >
-                                    <Calendar class="w-4 h-4" />
-                                </span>
-                                <input
-                                    v-model="formData.fecha_preferida"
-                                    type="date"
-                                    :min="minDate"
-                                    class="w-full pl-10 pr-3.5 py-3 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-xs text-slate-900 dark:text-white transition focus:bg-white dark:focus:bg-slate-900 focus:ring-2 focus:ring-sky-500 outline-none cursor-pointer"
-                                />
-                            </div>
+                            <label
+                                class="block text-[11px] font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5"
+                            >
+                                Fecha Estimada <span class="text-slate-400 font-normal">(Opcional)</span>
+                            </label>
+                            <CustomDatePicker
+                                v-model="formData.fecha_preferida"
+                                placeholder="Seleccionar fecha en calendario..."
+                            />
                         </div>
 
                         <!-- Turno Preferido: Selector Moderno en Tarjetas (Shadcn-like) -->
