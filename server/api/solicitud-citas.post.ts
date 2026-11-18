@@ -2,10 +2,11 @@ export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig()
   const body = await readBody(event)
 
+  const rawBackend = config.backendApiUrl || process.env.BACKEND_API_URL || ''
   const backendUrl =
-    config.backendApiUrl ||
-    process.env.BACKEND_API_URL ||
-    'http://20.171.52.21:8080/api'
+    rawBackend && !rawBackend.includes('tu-api.com')
+      ? rawBackend
+      : 'http://20.171.52.21:8080/api'
 
   try {
     const response = await $fetch(`${backendUrl}/solicitud-citas`, {

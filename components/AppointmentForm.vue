@@ -213,7 +213,7 @@ async function submitAppointment() {
             motivo_consulta: formData.value.motivo_consulta.trim() || null,
         };
 
-        const apiEndpoint = `${config.public.apiBaseUrl}/solicitud-citas`;
+        const apiEndpoint = '/api/solicitud-citas';
         const response = await axios.post(apiEndpoint, payload);
 
         if (response.status === 201 || response.data?.success) {
