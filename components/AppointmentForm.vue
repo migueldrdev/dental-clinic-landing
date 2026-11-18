@@ -34,43 +34,67 @@ const config = useRuntimeConfig();
 
 const specialtyOptions = [
     {
-        value: "Valoración Inicial Completa",
+        value: "Primera Consulta / Evaluación",
         label: "Valoración Inicial Completa (Diagnóstico 3D)",
         description: "Diagnóstico computarizado integral, fotos intraorales y plan de tratamiento.",
         badge: "Recomendado",
     },
     {
-        value: "Ortodoncia Invisible",
-        label: "Ortodoncia Invisible (Alineadores 3D)",
-        description: "Alineamiento dental estético y transparente sin brackets metálicos.",
-        badge: "3D Tech",
-    },
-    {
-        value: "Diseño de Sonrisa",
-        label: "Diseño de Sonrisa & Carillas Estéticas",
-        description: "Carillas de resina estética de alta gama o porcelana ultrafina.",
-        badge: "Estética",
-    },
-    {
-        value: "Implantes Dentales",
-        label: "Implantes Dentales Guiados & Cirugía",
-        description: "Recuperación de piezas dentales fijas con tecnología guiada sin dolor.",
-        badge: "Titanio",
-    },
-    {
-        value: "Endodoncia",
-        label: "Endodoncia (Tratamiento de Conducto)",
-        description: "Alivio del dolor agudo y salvación de la pieza dental con tecnología rotatoria.",
-        badge: "Sin Dolor",
-    },
-    {
-        value: "Limpieza y Profilaxis",
+        value: "Limpieza y Profilaxis Ultrasónica",
         label: "Limpieza y Profilaxis Ultrasónica",
         description: "Remoción profunda de sarro y manchas con ultrasonido y pulido.",
         badge: "Preventiva",
     },
     {
-        value: "Urgencia Dental",
+        value: "Ortodoncia Invisible con Alineadores 3D",
+        label: "Ortodoncia Invisible (Alineadores 3D)",
+        description: "Alineamiento dental estético y transparente sin brackets metálicos.",
+        badge: "3D Tech",
+    },
+    {
+        value: "Ortodoncia con Brackets de Zafiro",
+        label: "Ortodoncia con Brackets de Zafiro",
+        description: "Brackets estéticos transparentes de alta precisión y confort.",
+        badge: "Ortodoncia",
+    },
+    {
+        value: "Diseño de Sonrisa Digital con Carillas E-Max",
+        label: "Diseño de Sonrisa & Carillas Estéticas",
+        description: "Carillas cerámicas ultrafinas E-Max para una estética perfecta.",
+        badge: "Estética",
+    },
+    {
+        value: "Implante Dental de Titanio Biocompatible",
+        label: "Implantes Dentales Guiados & Cirugía",
+        description: "Recuperación de piezas dentales fijas con tecnología guiada sin dolor.",
+        badge: "Titanio",
+    },
+    {
+        value: "Endodoncia Rotatoria Unirradicular",
+        label: "Endodoncia (Tratamiento de Conducto)",
+        description: "Alivio del dolor agudo y salvación de la pieza dental con tecnología rotatoria.",
+        badge: "Sin Dolor",
+    },
+    {
+        value: "Blanqueamiento Dental LED en Consultorio",
+        label: "Blanqueamiento Dental LED",
+        description: "Aclaramiento dental seguro y visible desde la primera sesión.",
+        badge: "Brillo",
+    },
+    {
+        value: "Extracción Quirúrgica de Tercera Molar",
+        label: "Cirugía Oral & Tercera Molar",
+        description: "Extracción segura de muelas del juicio con técnicas mínimamente invasivas.",
+        badge: "Cirugía",
+    },
+    {
+        value: "Curación Dental con Resina Nano-híbrida",
+        label: "Curación Dental con Resina",
+        description: "Restauración estética de caries con resina nano-híbrida de alta resistencia.",
+        badge: "Estética",
+    },
+    {
+        value: "Urgencia Dental / Dolor Agudo",
         label: "Urgencia Dental por Dolor / Infección",
         description: "Atención prioritaria inmediata el mismo día.",
         badge: "Urgente",
@@ -82,7 +106,7 @@ const formData = ref({
     dni: "",
     telefono: "",
     correo: "",
-    especialidad: "Valoración Inicial Completa",
+    especialidad: "Primera Consulta / Evaluación",
     motivo_consulta: "",
     fecha_preferida: "",
     hora_preferida: "", // "" (cualquiera), "09:00:00" (mañana), "15:00:00" (tarde)
