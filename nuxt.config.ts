@@ -36,10 +36,16 @@ export default defineNuxtConfig({
     },
   },
   runtimeConfig: {
-    backendApiUrl: process.env.BACKEND_API_URL || 'http://20.171.52.21:8080/api',
+    backendApiUrl:
+      process.env.BACKEND_API_URL && !process.env.BACKEND_API_URL.includes('tu-api.com')
+        ? process.env.BACKEND_API_URL
+        : 'http://20.171.52.21:8080/api',
     public: {
-      apiBaseUrl: process.env.NUXT_PUBLIC_API_BASE_URL || '/api',
-      adminAppUrl: process.env.NUXT_PUBLIC_ADMIN_APP_URL || 'http://20.171.52.21',
+      apiBaseUrl: '/api',
+      adminAppUrl:
+        process.env.NUXT_PUBLIC_ADMIN_APP_URL && !process.env.NUXT_PUBLIC_ADMIN_APP_URL.includes('tu-app-admin')
+          ? process.env.NUXT_PUBLIC_ADMIN_APP_URL
+          : 'http://20.171.52.21',
     },
   },
   nitro: {
