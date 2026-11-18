@@ -112,7 +112,7 @@ const currentYear = new Date().getFullYear()
 
       <!-- Bottom Bar -->
       <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left text-slate-500">
-        <p>© {{ currentYear }} ODONTEC - Sistema Odontológico. Todos los derechos reservados.</p>
+        <p>© {{ currentYear }} ODONTEC. Todos los derechos reservados.</p>
         <p class="text-[11px]">
           Desarrollado bajo estándares médicos de seguridad de datos y privacidad HIPAA / MINSA.
         </p>

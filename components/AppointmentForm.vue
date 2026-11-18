@@ -349,10 +349,10 @@ function closeSuccessModal() {
 
             <!-- Main Form Container -->
             <div
-                class="bg-white dark:bg-slate-900 rounded-3xl shadow-xl p-6 sm:p-10 border border-slate-200/80 dark:border-slate-800 relative overflow-hidden"
+                class="bg-white dark:bg-slate-900 rounded-3xl shadow-xl p-6 sm:p-10 border border-slate-200/80 dark:border-slate-800 relative"
             >
                 <div
-                    class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-sky-400 via-sky-500 to-blue-600"
+                    class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-sky-400 via-sky-500 to-blue-600 rounded-t-3xl"
                 />
 
                 <form @submit.prevent="submitAppointment" class="space-y-5">
@@ -550,7 +550,7 @@ function closeSuccessModal() {
                     </div>
 
                     <!-- Row 3: Especialidad Requerida (Custom Modern Shadcn Select) -->
-                    <div>
+                    <div class="relative z-10">
                         <label
                             class="block text-[11px] font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5"
                         >
@@ -565,9 +565,9 @@ function closeSuccessModal() {
                     </div>
 
                     <!-- Row 4: Fecha Preferida & Selector Moderno de Turno -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1 relative z-20">
                         <!-- Fecha Preferida con Custom DatePicker tipo Shadcn -->
-                        <div>
+                        <div class="relative z-30">
                             <label
                                 class="block text-[11px] font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5"
                             >

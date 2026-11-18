@@ -218,7 +218,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-    <div ref="containerRef" class="relative w-full select-none">
+    <div ref="containerRef" class="relative w-full select-none z-30">
         <!-- Trigger Button Styled like Shadcn Popover Trigger -->
         <button
             type="button"
@@ -282,7 +282,7 @@ onUnmounted(() => {
         >
             <div
                 v-if="isOpen"
-                class="absolute left-0 sm:left-auto right-0 sm:right-auto z-50 mt-1.5 w-72 sm:w-80 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-2xl p-4 backdrop-blur-md"
+                class="absolute left-0 z-50 mt-1.5 w-72 sm:w-80 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-2xl p-4 backdrop-blur-md ring-1 ring-slate-900/5 dark:ring-white/10"
             >
                 <!-- Quick Date Selection Badges -->
                 <div class="flex items-center gap-1.5 pb-3 border-b border-slate-100 dark:border-slate-800 mb-3">
