@@ -67,7 +67,11 @@ onUnmounted(() => {
 </script>
 
 <template>
-    <div ref="containerRef" class="relative w-full select-none z-20">
+    <div
+        ref="containerRef"
+        class="relative w-full select-none transition-all"
+        :class="isOpen ? 'z-50' : 'z-30'"
+    >
         <!-- Custom Select Trigger (Shadcn style) -->
         <button
             type="button"

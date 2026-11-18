@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch, computed } from "vue";
+import { ref, watch, computed, onMounted } from "vue";
 import axios from "axios";
 import {
     Calendar,
@@ -101,8 +101,48 @@ const specialtyOptions = [
     },
 ];
 
+const availableSpecialties = ref(specialtyOptions);
+
+onMounted(async () => {
+    try {
+        const res = await axios.get('/api/catalogos/tratamientos');
+        if (res.data?.success && Array.isArray(res.data.data) && res.data.data.length > 0) {
+            const backendTratamientos = res.data.data;
+            const dynamicList = backendTratamientos.map((t: any) => {
+                const existing = specialtyOptions.find(
+                    (o) => o.value === t.nombre || o.label === t.nombre
+                );
+                return {
+                    value: t.nombre,
+                    label: existing ? existing.label : t.nombre,
+                    description:
+                        t.descripcion ||
+                        existing?.description ||
+                        `Tratamiento odontológico en ${t.especialidad}`,
+                    badge: existing?.badge || t.especialidad || "Clínico",
+                };
+            });
+            if (!dynamicList.some((t: any) => t.value === "Primera Consulta / Evaluación")) {
+                dynamicList.unshift(specialtyOptions[0]);
+            }
+            availableSpecialties.value = dynamicList;
+        }
+    } catch {
+        // Fallback a specialtyOptions predefinidas
+    }
+});
+
+// Tipos de documento de identidad soportados
+const documentTypes = [
+    { id: "DNI", label: "DNI", placeholder: "8 dígitos numéricos", maxLength: 8, numericOnly: true },
+    { id: "CE", label: "C.E.", placeholder: "9 a 12 caracteres", maxLength: 12, numericOnly: false },
+    { id: "PAS", label: "Pasaporte", placeholder: "N° de Pasaporte", maxLength: 12, numericOnly: false },
+    { id: "RUC", label: "RUC", placeholder: "11 dígitos (RUC)", maxLength: 11, numericOnly: true },
+];
+
 const formData = ref({
     nombre_completo: "",
+    tipo_documento: "DNI",
     dni: "",
     telefono: "",
     correo: "",
@@ -111,6 +151,18 @@ const formData = ref({
     fecha_preferida: "",
     hora_preferida: "", // "" (cualquiera), "09:00:00" (mañana), "15:00:00" (tarde)
 });
+
+const currentDocType = computed(() => {
+    return documentTypes.find((d) => d.id === formData.value.tipo_documento) || documentTypes[0];
+});
+
+function selectTipoDocumento(tipoId: string) {
+    formData.value.tipo_documento = tipoId;
+    formData.value.dni = "";
+    if (fieldErrors.value.dni) {
+        delete fieldErrors.value.dni;
+    }
+}
 
 watch(
     () => props.preselectedSpecialty,
@@ -152,7 +204,7 @@ const turnos = [
     },
 ];
 
-// Handlers estrictos para evitar letras en Teléfono y DNI
+// Handlers estrictos para evitar letras o longitudes erróneas
 function handlePhoneInput(e: Event) {
     const target = e.target as HTMLInputElement;
     const clean = target.value.replace(/\D/g, "").slice(0, 9);
@@ -165,7 +217,11 @@ function handlePhoneInput(e: Event) {
 
 function handleDniInput(e: Event) {
     const target = e.target as HTMLInputElement;
-    const clean = target.value.replace(/\D/g, "").slice(0, 8);
+    const isNum = currentDocType.value.numericOnly;
+    const max = currentDocType.value.maxLength;
+    const clean = isNum
+        ? target.value.replace(/\D/g, "").slice(0, max)
+        : target.value.replace(/[^a-zA-Z0-9-]/g, "").slice(0, max);
     formData.value.dni = clean;
     target.value = clean;
     if (fieldErrors.value.dni) {
@@ -188,7 +244,20 @@ const isPhoneValid = computed(() => {
 
 const isDniValid = computed(() => {
     if (!formData.value.dni) return true; // es opcional
-    return formData.value.dni.length === 8;
+    const val = formData.value.dni.trim();
+    if (formData.value.tipo_documento === "DNI") {
+        return val.length === 8 && /^\d{8}$/.test(val);
+    }
+    if (formData.value.tipo_documento === "RUC") {
+        return val.length === 11 && /^\d{11}$/.test(val);
+    }
+    if (formData.value.tipo_documento === "CE") {
+        return val.length >= 9 && val.length <= 12;
+    }
+    if (formData.value.tipo_documento === "PAS") {
+        return val.length >= 6 && val.length <= 12;
+    }
+    return val.length >= 6;
 });
 
 const isEmailValid = computed(() => {
@@ -207,11 +276,19 @@ async function submitAppointment() {
     }
 
     if (!isPhoneValid.value) {
-        fieldErrors.value.telefono = "Ingresa un número de celular válido de Perú (9 dígitos, comenzando con 9).";
+        fieldErrors.value.telefono = "Ingresa un número de celular válido de Perú (exactamente 9 dígitos, comenzando con 9).";
     }
 
     if (formData.value.dni && !isDniValid.value) {
-        fieldErrors.value.dni = "El DNI debe contener exactamente 8 dígitos numéricos.";
+        if (formData.value.tipo_documento === "DNI") {
+            fieldErrors.value.dni = "El DNI debe contener exactamente 8 dígitos numéricos.";
+        } else if (formData.value.tipo_documento === "RUC") {
+            fieldErrors.value.dni = "El RUC debe contener exactamente 11 dígitos numéricos.";
+        } else if (formData.value.tipo_documento === "CE") {
+            fieldErrors.value.dni = "El Carnet de Extranjería debe contener entre 9 y 12 caracteres.";
+        } else {
+            fieldErrors.value.dni = "El Pasaporte debe contener entre 6 y 12 caracteres.";
+        }
     }
 
     if (formData.value.correo && !isEmailValid.value) {
@@ -229,6 +306,7 @@ async function submitAppointment() {
         const payload = {
             nombre_completo: formData.value.nombre_completo.trim(),
             telefono: formData.value.telefono.trim(),
+            tipo_documento: formData.value.tipo_documento,
             dni: formData.value.dni.trim() || null,
             correo: formData.value.correo.trim() || null,
             especialidad: formData.value.especialidad,
@@ -245,10 +323,11 @@ async function submitAppointment() {
             // Reset form
             formData.value = {
                 nombre_completo: "",
+                tipo_documento: "DNI",
                 dni: "",
                 telefono: "",
                 correo: "",
-                especialidad: "Valoración Inicial Completa",
+                especialidad: "Primera Consulta / Evaluación",
                 motivo_consulta: "",
                 fecha_preferida: "",
                 hora_preferida: "",
@@ -484,17 +563,31 @@ function closeSuccessModal() {
 
                     <!-- Row 2: Documento de Identidad & Correo Electrónico -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <!-- DNI -->
+                        <!-- Documento de Identidad con Selector de Tipo -->
                         <div>
-                            <div class="flex items-center justify-between mb-1.5">
+                            <div class="flex items-center justify-between mb-1.5 flex-wrap gap-1">
                                 <label
                                     class="block text-[11px] font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider"
                                 >
-                                    Documento DNI <span class="text-slate-400 font-normal">(Opcional)</span>
+                                    Documento <span class="text-slate-400 font-normal">(Opcional)</span>
                                 </label>
-                                <span v-if="formData.dni" class="text-[10px] text-slate-400 font-medium">
-                                    {{ formData.dni.length }}/8 dígitos
-                                </span>
+                                <!-- Selector compacto de Tipo de Documento -->
+                                <div class="inline-flex items-center gap-1 bg-slate-100 dark:bg-slate-800 p-0.5 rounded-lg border border-slate-200/60 dark:border-slate-700/60">
+                                    <button
+                                        v-for="t in documentTypes"
+                                        :key="t.id"
+                                        type="button"
+                                        @click="selectTipoDocumento(t.id)"
+                                        :class="[
+                                            'px-2 py-0.5 text-[10px] font-bold rounded-md transition-all cursor-pointer',
+                                            formData.tipo_documento === t.id
+                                                ? 'bg-sky-500 text-white shadow-xs'
+                                                : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                                        ]"
+                                    >
+                                        {{ t.label }}
+                                    </button>
+                                </div>
                             </div>
                             <div class="relative">
                                 <span
@@ -505,10 +598,10 @@ function closeSuccessModal() {
                                 <input
                                     :value="formData.dni"
                                     @input="handleDniInput"
-                                    type="text"
-                                    inputmode="numeric"
-                                    maxlength="8"
-                                    placeholder="8 dígitos numéricos"
+                                    :type="currentDocType.numericOnly ? 'tel' : 'text'"
+                                    :inputmode="currentDocType.numericOnly ? 'numeric' : 'text'"
+                                    :maxlength="currentDocType.maxLength"
+                                    :placeholder="currentDocType.placeholder"
                                     class="w-full pl-10 pr-10 py-3 bg-slate-50 dark:bg-slate-950 border rounded-xl text-xs text-slate-900 dark:text-white font-mono transition focus:bg-white dark:focus:bg-slate-900 focus:ring-2 outline-none"
                                     :class="[
                                         fieldErrors.dni
@@ -525,18 +618,23 @@ function closeSuccessModal() {
                                     <Check class="w-4 h-4" />
                                 </span>
                             </div>
-                            <p
-                                v-if="fieldErrors.dni"
-                                class="text-[10px] text-red-500 mt-1 font-medium"
-                            >
-                                {{ fieldErrors.dni }}
-                            </p>
-                            <p
-                                v-else-if="formData.dni && !isDniValid"
-                                class="text-[10px] text-amber-500 mt-1 font-medium"
-                            >
-                                El DNI debe ser exactamente de 8 números.
-                            </p>
+                            <div class="flex items-center justify-between mt-1">
+                                <p
+                                    v-if="fieldErrors.dni"
+                                    class="text-[10px] text-red-500 font-medium"
+                                >
+                                    {{ fieldErrors.dni }}
+                                </p>
+                                <p
+                                    v-else-if="formData.dni && !isDniValid"
+                                    class="text-[10px] text-amber-500 font-medium"
+                                >
+                                    Formato inválido para {{ currentDocType.label }} ({{ currentDocType.placeholder }}).
+                                </p>
+                                <span v-if="formData.dni" class="text-[10px] text-slate-400 font-medium ml-auto">
+                                    {{ formData.dni.length }}/{{ currentDocType.maxLength }}
+                                </span>
+                            </div>
                         </div>
 
                         <!-- Correo Electrónico -->
@@ -574,7 +672,7 @@ function closeSuccessModal() {
                     </div>
 
                     <!-- Row 3: Especialidad Requerida (Custom Modern Shadcn Select) -->
-                    <div class="relative z-10">
+                    <div class="relative z-40">
                         <label
                             class="block text-[11px] font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5"
                         >
@@ -582,7 +680,7 @@ function closeSuccessModal() {
                         </label>
                         <CustomSelect
                             v-model="formData.especialidad"
-                            :options="specialtyOptions"
+                            :options="availableSpecialties"
                             placeholder="Selecciona la especialidad o tratamiento..."
                             :has-error="!!fieldErrors.especialidad"
                         />
@@ -645,7 +743,7 @@ function closeSuccessModal() {
                     </div>
 
                     <!-- Row 5: Motivo o Síntomas -->
-                    <div>
+                    <div class="relative z-10">
                         <div class="flex items-center justify-between mb-1.5">
                             <label
                                 class="block text-[11px] font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider"
