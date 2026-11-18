@@ -127,7 +127,7 @@ onUnmounted(() => {
         </button>
 
         <a
-          :href="`${config.public.adminAppUrl}/login`"
+          href="/portal"
           target="_blank"
           rel="noopener noreferrer"
           class="bg-slate-900 dark:bg-slate-800 hover:bg-slate-800 dark:hover:bg-slate-700 text-white border border-slate-800 dark:border-slate-700 px-4 py-2.5 rounded-xl font-bold text-xs transition shadow-sm flex items-center gap-2"
@@ -190,7 +190,7 @@ onUnmounted(() => {
           Agendar Cita
         </button>
         <a
-          :href="`${config.public.adminAppUrl}/login`"
+          href="/portal"
           target="_blank"
           rel="noopener noreferrer"
           class="w-full bg-slate-900 dark:bg-slate-800 hover:bg-slate-800 dark:hover:bg-slate-700 text-white py-3 rounded-xl font-bold text-xs text-center flex items-center justify-center gap-2 shadow-sm"

@@ -91,6 +91,12 @@ const currentYear = new Date().getFullYear()
                 Sedes y Horarios
               </button>
             </li>
+            <li class="pt-1">
+              <a href="/portal" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:text-sky-300 font-semibold flex items-center gap-1 transition">
+                <span>Portal Médico</span>
+                <span class="text-xs">&rarr;</span>
+              </a>
+            </li>
           </ul>
         </div>
 
