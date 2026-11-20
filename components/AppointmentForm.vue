@@ -295,6 +295,13 @@ async function submitAppointment() {
         fieldErrors.value.correo = "Ingresa un correo electrónico válido.";
     }
 
+    if (formData.value.fecha_preferida) {
+        const todayStr = new Date().toISOString().split("T")[0];
+        if (formData.value.fecha_preferida < todayStr) {
+            fieldErrors.value.fecha_preferida = "La fecha estimada de atención no puede ser anterior a hoy.";
+        }
+    }
+
     if (Object.keys(fieldErrors.value).length > 0) {
         errorMessage.value = "Por favor verifica los campos marcados en rojo antes de enviar.";
         return;

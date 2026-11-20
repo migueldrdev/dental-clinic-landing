@@ -55,6 +55,13 @@ const formattedViewingMonth = computed(() => {
     return `${monthsNames[currentMonth.value]} ${currentYear.value}`;
 });
 
+const canPrevMonth = computed(() => {
+    return (
+        currentYear.value > today.getFullYear() ||
+        (currentYear.value === today.getFullYear() && currentMonth.value > today.getMonth())
+    );
+});
+
 // Generate days grid for current viewing month
 interface DayCell {
     dateStr: string;
@@ -155,6 +162,7 @@ const displaySelectedDate = computed(() => {
 });
 
 function prevMonth() {
+    if (!canPrevMonth.value) return;
     if (currentMonth.value === 0) {
         currentMonth.value = 11;
         currentYear.value--;
@@ -313,8 +321,14 @@ onUnmounted(() => {
                 <div class="flex items-center justify-between mb-3 px-1">
                     <button
                         type="button"
+                        :disabled="!canPrevMonth"
                         @click="prevMonth"
-                        class="p-1.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition cursor-pointer"
+                        class="p-1.5 rounded-xl transition"
+                        :class="[
+                            !canPrevMonth
+                                ? 'opacity-25 cursor-not-allowed text-slate-300 dark:text-slate-700 pointer-events-none'
+                                : 'hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white cursor-pointer',
+                        ]"
                         title="Mes anterior"
                     >
                         <ChevronLeft class="w-4 h-4" />
